@@ -1,0 +1,1867 @@
+/*
+Theme Name: Cmentarze Myszków
+Theme URI: https://cmentarzemyszkow.pl/
+Author: Dom Pogrzebowy Lilia
+Author URI: https://liliamyszkow.com/
+Description: Motyw WordPress dla portalu Cmentarze Myszków - lokalnej bazy cmentarzy powiatu myszkowskiego.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: cmentarze-myszkow
+Tags: cmentarze, myszków, portal, informacyjny
+Requires at least: 6.0
+Tested up to: 6.7
+Requires PHP: 8.0
+*/
+
+/* ============================================
+   PODSTAWOWE STYLE
+   ============================================ */
+
+:root {
+    --background: #faf9f6;
+    --foreground: #1a1a1a;
+    --card: #ffffff;
+    --card-foreground: #1a1a1a;
+    --muted-foreground: #4a4a4a;
+    --border: #d0cec8;
+    --accent: #f0eeea;
+    --primary: #2a6a5a;
+    --primary-dark: #1a5a4a;
+    --primary-light: #3a8a6a;
+    --radius: 0.5rem;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    margin: 0;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    font-size: 18px;
+    line-height: 1.72;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--primary);
+}
+
+button, input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1, h2, h3 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+    line-height: 1.25;
+}
+
+h1 {
+    font-size: clamp(34px, 4vw, 52px);
+    margin: 0 0 20px;
+}
+
+h2 {
+    font-size: 36px;
+    margin: 0 0 20px;
+}
+
+h3 {
+    font-size: 22px;
+    margin: 12px 0;
+}
+
+p {
+    margin: 0 0 16px;
+}
+
+/* ============================================
+   LAYOUT
+   ============================================ */
+
+.wrap {
+    width: min(1180px, calc(100% - 64px));
+    margin: auto;
+}
+
+.screen-reader-text {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.skip-link {
+    position: absolute;
+    left: 10px;
+    top: -60px;
+    background: white;
+    padding: 10px;
+    z-index: 10;
+}
+
+.skip-link:focus {
+    top: 10px;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.header {
+    background: #fff;
+    border-bottom: 2px solid #c9b896;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+.header-row {
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 12px 0;
+}
+
+.portal-logo {
+    display: block;
+    width: 220px;
+    height: auto;
+    object-fit: contain;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    font-size: 17px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu a {
+    color: #2a2a2a;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 4px;
+}
+
+.nav-menu a:hover {
+    color: var(--primary);
+}
+
+.nav-menu .current-menu-item a,
+.nav-menu .current_page_item a {
+    color: var(--primary-dark);
+    border-bottom: 2px solid var(--primary);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 16px;
+    min-height: 48px;
+    border: 1px solid var(--primary);
+    background: var(--primary);
+    color: #fff;
+    transition: background 0.2s;
+}
+
+.btn:hover {
+    background: var(--primary-dark);
+    color: #fff;
+}
+
+.btn-outline {
+    background: #fff;
+    color: #2a2a2a;
+    border-color: #888;
+}
+
+.btn-outline:hover {
+    background: #f0f0f0;
+    color: #2a2a2a;
+}
+
+.menu-toggle {
+    display: none;
+    background: #fff;
+    border: 1px solid #999;
+    padding: 12px;
+    border-radius: 6px;
+}
+
+@media (max-width: 768px) {
+    .wrap {
+        width: calc(100% - 32px);
+    }
+
+    .header-row {
+        min-height: 90px;
+    }
+
+    .portal-logo {
+        width: 160px;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        flex-direction: column;
+        padding: 20px;
+        gap: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero {
+    background: linear-gradient(115deg, #e8f0ed 0%, #d8e8e0 100%);
+    border-bottom: 1px solid #c0d0c8;
+    padding: 54px 0 40px;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 58px;
+    align-items: center;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #4a6a5a;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.eyebrow::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: currentColor;
+}
+
+.hero h1 {
+    color: #1a2a24;
+    letter-spacing: -1px;
+    margin-top: 17px;
+}
+
+.hero h1 em {
+    font-style: normal;
+    color: #2a5a4a;
+}
+
+.hero p {
+    color: #3a3a3a;
+    font-size: 19px;
+    max-width: 590px;
+}
+
+.hero-picture {
+    height: 265px;
+    position: relative;
+    border-radius: 16px 3px 16px 3px;
+    overflow: hidden;
+    background: #dbe3d8;
+    border: 1px solid #a0b0a0;
+}
+
+.hero-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.picture-label {
+    position: absolute;
+    bottom: 14px;
+    left: 16px;
+    background: rgba(255,255,255,0.94);
+    padding: 7px 13px;
+    border-radius: 5px;
+    font-size: 13px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Search Form */
+.search-form-hero {
+    display: flex;
+    padding: 8px;
+    background: #fff;
+    border: 2px solid #bbb;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    border-radius: 8px;
+    gap: 8px;
+    margin-top: 30px;
+    align-items: center;
+}
+
+.search-form-hero svg {
+    margin-left: 12px;
+    color: #555;
+}
+
+.search-form-hero input {
+    min-width: 0;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 12px;
+    background: transparent;
+    color: #1a1a1a;
+    font-size: 17px;
+}
+
+.search-form-hero input::placeholder {
+    color: #666;
+}
+
+.trust {
+    display: flex;
+    gap: 28px;
+    margin-top: 25px;
+    font-size: 16px;
+    color: #3a3a3a;
+}
+
+.trust span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.trust svg {
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 32px 0;
+    }
+
+    .hero-grid {
+        display: block;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .hero-picture {
+        display: none;
+    }
+
+    .trust {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+/* ============================================
+   SECTION LAYOUT
+   ============================================ */
+
+.section {
+    padding: 56px 0;
+}
+
+.section-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.section-head h2 {
+    margin-bottom: 8px;
+}
+
+.section-head p {
+    color: #4a4a4a;
+    font-size: 17px;
+    margin: 0;
+    max-width: 760px;
+}
+
+.text-link {
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--primary);
+    min-height: 44px;
+}
+
+.text-link:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* ============================================
+   FILTERS
+   ============================================ */
+
+.filters {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+}
+
+.filter {
+    background: #fff;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 14px 24px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #2a2a2a;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: all 0.2s ease;
+    min-height: 50px;
+}
+
+.filter:hover {
+    border-color: var(--primary);
+    background: #f8faf9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.filter.selected,
+.filter[aria-pressed="true"] {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+    box-shadow: 0 4px 16px rgba(42,106,90,0.3);
+}
+
+.filter span {
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+    margin-left: 6px;
+}
+
+.filter.selected span {
+    color: rgba(255,255,255,0.8);
+}
+
+/* ============================================
+   CEMETERY CARDS
+   ============================================ */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-top: 4px solid var(--gmina-color, var(--primary));
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.card:hover {
+    border-color: #999;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    transform: translateY(-3px);
+}
+
+.card-image {
+    height: 160px;
+    background: #f5f5f0;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-placeholder {
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+}
+
+.card-placeholder svg {
+    display: block;
+    margin: 0 auto 8px;
+    opacity: 0.5;
+}
+
+.tag {
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    font-size: 14px;
+    background: #e8f4e8;
+    color: #1a4a3a;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid #aad0b8;
+}
+
+.card-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body h3 {
+    font-size: 24px;
+    margin: 0 0 11px;
+    min-height: 60px;
+    line-height: 1.3;
+}
+
+.card-parish {
+    font-size: 17px;
+    color: #3a3a3a;
+    line-height: 1.65;
+    margin: 0 0 14px;
+    min-height: 75px;
+}
+
+.location {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    color: #4a4a4a;
+    font-size: 16px;
+    line-height: 1.55;
+    margin-bottom: 18px;
+    min-height: 48px;
+}
+
+.location svg {
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+/* Grave Search Badge */
+.grave-search-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    margin: 0 0 16px;
+    background: #e8f4f0;
+    border: 2px solid #7ab8a0;
+    border-radius: 8px;
+    color: #1a3a30;
+    min-height: 66px;
+    transition: all 0.2s;
+}
+
+.grave-search-badge:hover {
+    background: #d8ece4;
+    border-color: #5aa888;
+}
+
+.grave-search-badge > span {
+    flex: 1;
+    min-width: 0;
+}
+
+.grave-search-label {
+    display: block;
+    font-size: 14px;
+    line-height: 1.35;
+    color: #3a5a4a;
+}
+
+.grave-search-badge strong {
+    display: block;
+    font-size: 17px;
+    line-height: 1.5;
+    color: #1a3a30;
+}
+
+.card-links {
+    margin-top: auto;
+    min-height: 130px;
+}
+
+.card-bottom {
+    border-top: 1px solid #ddd;
+    padding-top: 18px;
+    margin-top: 18px;
+}
+
+.card-bottom .text-link {
+    width: 100%;
+    justify-content: space-between;
+}
+
+/* Gmina Colors */
+.card[data-gmina="Myszków"] { --gmina-color: #3a8a6a; }
+.card[data-gmina="Żarki"] { --gmina-color: #a07030; }
+.card[data-gmina="Niegowa"] { --gmina-color: #6a8a30; }
+.card[data-gmina="Poraj"] { --gmina-color: #4080b0; }
+.card[data-gmina="Koziegłowy"] { --gmina-color: #7a60a0; }
+
+@media (max-width: 950px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 680px) {
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .card {
+        display: block;
+    }
+
+    .card-image {
+        height: 180px;
+    }
+
+    .card-body {
+        padding: 21px;
+    }
+
+    .card-body h3 {
+        font-size: 25px;
+        min-height: auto;
+    }
+
+    .card-parish {
+        min-height: auto;
+    }
+
+    .location {
+        min-height: auto;
+    }
+
+    .card-links {
+        min-height: auto;
+    }
+}
+
+/* ============================================
+   CITY/GMINA LIST
+   ============================================ */
+
+.city-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+}
+
+.city {
+    background: #fff;
+    border: 2px solid var(--gmina-color, #7a9);
+    border-left: 5px solid var(--gmina-color, #7a9);
+    border-radius: 8px;
+    padding: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 18px;
+    min-height: 78px;
+    color: #1a1a1a;
+    transition: all 0.2s;
+}
+
+.city:hover {
+    background: #f8f8f5;
+    border-color: var(--gmina-color-dark, #5a7);
+}
+
+.city small {
+    display: block;
+    font-size: 15px;
+    color: #4a4a4a;
+    margin-top: 4px;
+}
+
+.city[data-gmina="Myszków"] { --gmina-color: #3a8a6a; --gmina-color-dark: #1a5a4a; }
+.city[data-gmina="Żarki"] { --gmina-color: #a07030; --gmina-color-dark: #6a4a20; }
+.city[data-gmina="Niegowa"] { --gmina-color: #6a8a30; --gmina-color-dark: #4a6a20; }
+.city[data-gmina="Poraj"] { --gmina-color: #4080b0; --gmina-color-dark: #2a5a80; }
+.city[data-gmina="Koziegłowy"] { --gmina-color: #7a60a0; --gmina-color-dark: #5a4080; }
+
+@media (max-width: 950px) {
+    .city-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 680px) {
+    .city-list {
+        grid-template-columns: 1fr;
+    }
+
+    .city {
+        padding: 16px;
+        min-height: 72px;
+    }
+}
+
+/* ============================================
+   MAP SECTION
+   ============================================ */
+
+.map-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    min-height: 400px;
+}
+
+.map-side {
+    padding: 30px;
+    background: #fff;
+}
+
+.map-side h2 {
+    font-size: 28px;
+    margin-top: 15px;
+}
+
+.map-side p {
+    color: #4a4a4a;
+    font-size: 16px;
+}
+
+.map-select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-top: 16px;
+    background: #fff;
+}
+
+.map-entry {
+    border-top: 1px solid #e2e7de;
+    margin-top: 25px;
+    padding-top: 20px;
+}
+
+.map-entry strong {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.map-entry .small {
+    color: #666;
+    font-size: 14px;
+}
+
+.map-entry .text-link {
+    margin-top: 15px;
+}
+
+.map-frame {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    border: 0;
+}
+
+.map-consent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px;
+    background: #f5f5f0;
+    text-align: center;
+    min-height: 400px;
+}
+
+.map-consent h3 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.map-consent p {
+    color: #666;
+    max-width: 400px;
+}
+
+@media (max-width: 768px) {
+    .map-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .map-side {
+        padding: 24px;
+    }
+
+    .map-frame {
+        min-height: 300px;
+    }
+}
+
+/* ============================================
+   COUNTY MAP SECTION
+   ============================================ */
+
+.county-section {
+    scroll-margin-top: 100px;
+}
+
+.county-heading {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 28px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+.county-heading .eyebrow {
+    color: var(--primary);
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+}
+
+.county-heading h2 {
+    font-size: 38px;
+    margin: 0 0 12px;
+}
+
+.county-heading p {
+    color: #4a4a4a;
+    font-size: 18px;
+    margin: 0;
+}
+
+.county-total {
+    background: #f5f5f0;
+    border-radius: 8px;
+    padding: 16px 20px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.county-total strong {
+    font: 48px Georgia, serif;
+    color: var(--primary);
+    display: block;
+    line-height: 1;
+}
+
+.county-layout {
+    display: grid;
+    grid-template-columns: 285px 1fr;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.county-list {
+    min-width: 0;
+    border-right: 1px solid #ddd;
+}
+
+.county-list-title {
+    padding: 23px;
+    border-bottom: 1px solid #ddd;
+    background: #f8f8f5;
+}
+
+.county-list-title strong {
+    display: block;
+    font-size: 18px;
+}
+
+.county-list-title small {
+    font-size: 14px;
+    color: #4a4a4a;
+}
+
+.county-scroll {
+    height: 466px;
+    overflow: auto;
+}
+
+.county-scroll button {
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 18px 20px;
+    border: 0;
+    border-bottom: 1px solid #eee;
+    background: white;
+    cursor: pointer;
+    min-height: 74px;
+}
+
+.county-scroll button:hover {
+    background: #f5f5f0;
+}
+
+.county-scroll i {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.county-scroll strong {
+    font-size: 16px;
+    line-height: 1.45;
+    display: block;
+}
+
+.county-scroll small {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.county-scroll b {
+    margin-left: auto;
+    color: #888;
+}
+
+.county-map {
+    height: 550px;
+    background: #e8ede5;
+}
+
+.county-note {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    line-height: 1.7;
+}
+
+.county-note a {
+    color: var(--primary);
+}
+
+.map-disclaimer {
+    background: #f8f8f5;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-top: 12px;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .county-heading {
+        display: block;
+        padding: 20px 22px;
+    }
+
+    .county-heading h2 {
+        font-size: 30px;
+    }
+
+    .county-total {
+        display: none;
+    }
+
+    .county-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .county-list {
+        border-right: 0;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .county-scroll {
+        height: 270px;
+    }
+
+    .county-map {
+        height: 430px;
+    }
+
+    .county-note {
+        display: block;
+    }
+
+    .county-note span {
+        display: block;
+        margin-bottom: 8px;
+    }
+}
+
+/* ============================================
+   NOTICE / INFO BOX
+   ============================================ */
+
+.notice {
+    background: #f0f8f4;
+    border: 2px solid #a0c8b8;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    padding: 24px 28px;
+    margin-top: 34px;
+}
+
+.notice svg {
+    flex-shrink: 0;
+    color: #3a7a5a;
+}
+
+.notice strong {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.notice p {
+    margin: 0;
+    color: #3a3a3a;
+    font-size: 16px;
+}
+
+.notice .text-link {
+    margin-left: auto;
+    white-space: nowrap;
+}
+
+@media (max-width: 680px) {
+    .notice {
+        flex-wrap: wrap;
+        padding: 20px;
+        gap: 14px;
+    }
+
+    .notice .text-link {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+/* ============================================
+   REGIONAL LINKS
+   ============================================ */
+
+.regional-links {
+    display: flex;
+    gap: 22px;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 15px;
+    margin-top: 22px;
+    padding-top: 20px;
+    border-top: 1px solid #d0cec8;
+}
+
+.regional-links span {
+    color: #4a4a4a;
+}
+
+.regional-links a {
+    color: var(--primary);
+}
+
+.regional-links a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+    padding: 40px 0;
+    border-top: 1px solid #d0cec0;
+    background: #f5f4f0;
+}
+
+.footer-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.footer .brand {
+    display: flex;
+    align-items: flex-start;
+    gap: 22px;
+    flex-wrap: wrap;
+    max-width: 410px;
+}
+
+.lilia-signature {
+    display: block;
+    width: 135px;
+    height: auto;
+    object-fit: contain;
+}
+
+.footer-copy {
+    max-width: 560px;
+}
+
+.footer-copy p {
+    font-size: 15px;
+    color: #3a3a3a;
+    line-height: 1.7;
+}
+
+.footer-copy strong {
+    color: #1a1a1a;
+}
+
+.footer-copy a {
+    color: var(--primary);
+}
+
+.footer-copy a:hover {
+    text-decoration: underline;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 19px;
+}
+
+.footer-legal a {
+    font-size: 17px;
+    color: #1a3a2a;
+    font-weight: 600;
+}
+
+.photo-credit {
+    font-size: 14px;
+    color: #5a5a5a;
+    line-height: 1.75;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .footer-row {
+        display: block;
+    }
+
+    .footer .brand {
+        margin-bottom: 24px;
+    }
+
+    .lilia-signature {
+        width: 110px;
+    }
+
+    .footer-legal {
+        display: grid;
+        gap: 10px;
+    }
+}
+
+/* ============================================
+   SINGLE CEMETERY PAGE
+   ============================================ */
+
+.crumb {
+    font-size: 14px;
+    color: #5a5a5a;
+    padding: 24px 0;
+}
+
+.crumb a {
+    color: var(--primary);
+}
+
+.crumb a:hover {
+    text-decoration: underline;
+}
+
+.detail-title {
+    padding-bottom: 30px;
+}
+
+.detail-title h1 {
+    font-size: 44px;
+    margin: 16px 0;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 30px;
+    align-items: start;
+}
+
+.detail-main {
+    min-width: 0;
+}
+
+.panel {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 29px;
+    margin-bottom: 23px;
+    scroll-margin-top: 24px;
+}
+
+.panel h2 {
+    font-size: 31px;
+    margin-bottom: 20px;
+}
+
+.panel p,
+.panel li {
+    font-size: 17px;
+    line-height: 1.75;
+    color: #2a2a2a;
+}
+
+.detail-photo {
+    width: 100%;
+    height: 290px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 24px;
+}
+
+.info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.info dt {
+    font-size: 15px;
+    color: #5a5a5a;
+    margin-bottom: 4px;
+}
+
+.info dd {
+    margin: 0;
+    font-size: 17px;
+    color: #1a1a1a;
+    overflow-wrap: anywhere;
+}
+
+.source {
+    font-size: 14px;
+    color: #5a5a5a;
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+    padding-top: 13px;
+    line-height: 1.75;
+}
+
+.source a {
+    text-decoration: underline;
+    color: var(--primary);
+}
+
+/* Aside */
+.aside .panel {
+    padding: 24px;
+}
+
+.aside h3 {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.aside p {
+    font-size: 16px;
+    color: #3a3a3a;
+}
+
+.aside a {
+    overflow-wrap: anywhere;
+    color: var(--primary);
+}
+
+.aside .btn {
+    width: 100%;
+    margin-top: 14px;
+}
+
+/* Actions */
+.actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+}
+
+/* Empty state */
+.empty {
+    padding: 36px;
+    border: 2px dashed #aaa;
+    border-radius: 10px;
+    background: white;
+    text-align: center;
+}
+
+.empty h3 {
+    margin-top: 0;
+}
+
+/* Tables */
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    padding: 15px 12px;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+}
+
+th {
+    color: #5a5a5a;
+    font-weight: 600;
+}
+
+/* Details/Accordion */
+details {
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+}
+
+summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 17px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+}
+
+details p {
+    color: #3a3a3a;
+    margin-top: 12px;
+}
+
+/* Regulations */
+.regulations-list {
+    list-style: decimal;
+    padding-left: 1.6rem;
+    margin-top: 1.25rem;
+    line-height: 1.85;
+    font-size: 17px;
+}
+
+.regulations-list > li {
+    padding-left: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+.regulations-list ul {
+    list-style: disc;
+    padding-left: 1.4rem;
+    margin-top: 0.5rem;
+}
+
+.regulations-list ul li {
+    margin-bottom: 0.35rem;
+}
+
+@media (max-width: 768px) {
+    .detail-title h1 {
+        font-size: 34px;
+    }
+
+    .detail-grid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .detail-main,
+    .aside {
+        width: 100%;
+    }
+
+    .panel {
+        padding: 22px;
+    }
+
+    .info {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-photo {
+        height: 220px;
+    }
+
+    .actions {
+        gap: 8px;
+    }
+
+    .actions a {
+        padding: 10px 13px;
+        font-size: 14px;
+    }
+}
+
+/* ============================================
+   LEGAL PAGES
+   ============================================ */
+
+.legal-page {
+    padding-bottom: 70px;
+}
+
+.legal-hero {
+    max-width: 900px;
+    padding: 28px 0 45px;
+}
+
+.legal-hero h1 {
+    font-size: clamp(42px, 5vw, 62px);
+    margin: 16px 0;
+}
+
+.legal-hero p {
+    font-size: 21px;
+    line-height: 1.7;
+    color: #3a3a3a;
+    max-width: 820px;
+}
+
+.legal-hero > span {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 16px;
+    color: #666;
+}
+
+.legal-layout {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 38px;
+    align-items: start;
+}
+
+.legal-nav {
+    position: sticky;
+    top: 24px;
+    display: grid;
+    gap: 5px;
+    padding: 24px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #fff;
+}
+
+.legal-nav strong {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.legal-nav a {
+    font-size: 16px;
+    line-height: 1.45;
+    padding: 10px 8px;
+    border-bottom: 1px solid #eee;
+    color: var(--primary);
+}
+
+.legal-nav a:hover {
+    text-decoration: underline;
+}
+
+.legal-content {
+    min-width: 0;
+}
+
+.legal-content section {
+    scroll-margin-top: 28px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 34px;
+    margin-bottom: 24px;
+}
+
+.legal-content h2 {
+    font-size: 34px;
+    margin-bottom: 20px;
+}
+
+.legal-content h3 {
+    font-size: 25px;
+    margin-top: 28px;
+}
+
+.legal-content p,
+.legal-content li {
+    font-size: 19px;
+    line-height: 1.8;
+    color: #2a2a2a;
+}
+
+.legal-content li {
+    margin-bottom: 10px;
+}
+
+.legal-content a {
+    text-decoration: underline;
+    color: var(--primary);
+}
+
+.legal-address {
+    font-style: normal;
+    font-size: 19px;
+    line-height: 1.75;
+    padding: 22px 24px;
+    margin: 20px 0;
+    border-left: 4px solid #c3b18e;
+    background: #f8f8f5;
+}
+
+.legal-table-wrap {
+    overflow-x: auto;
+}
+
+.legal-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.legal-table th,
+.legal-table td {
+    text-align: left;
+    padding: 15px 12px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: top;
+}
+
+.legal-table th {
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+.legal-table th:first-child,
+.legal-table td:first-child {
+    width: 42%;
+}
+
+.legal-basis {
+    border-top: 1px solid #ddd;
+    margin-top: 26px;
+    padding-top: 20px;
+    color: #666 !important;
+}
+
+@media (max-width: 850px) {
+    .legal-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .legal-nav {
+        position: static;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .legal-nav strong {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 680px) {
+    .legal-page {
+        padding-bottom: 45px;
+    }
+
+    .legal-hero {
+        padding: 22px 0 32px;
+    }
+
+    .legal-hero h1 {
+        font-size: 39px;
+    }
+
+    .legal-hero p {
+        font-size: 19px;
+    }
+
+    .legal-nav {
+        grid-template-columns: 1fr;
+        padding: 19px;
+    }
+
+    .legal-content section {
+        padding: 24px;
+    }
+
+    .legal-content h2 {
+        font-size: 30px;
+    }
+
+    .legal-content h3 {
+        font-size: 23px;
+    }
+
+    .legal-content p,
+    .legal-content li,
+    .legal-address {
+        font-size: 18px;
+    }
+
+    .legal-table {
+        min-width: 650px;
+    }
+}
+
+/* ============================================
+   ARCHIVE PAGE
+   ============================================ */
+
+.archive-header {
+    padding: 40px 0;
+    background: linear-gradient(115deg, #e8f0ed 0%, #d8e8e0 100%);
+    border-bottom: 1px solid #c0d0c8;
+}
+
+.archive-header h1 {
+    margin-bottom: 12px;
+}
+
+.archive-header p {
+    font-size: 18px;
+    color: #3a3a3a;
+    max-width: 700px;
+}
+
+.archive-stats {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.archive-stats span {
+    font-size: 16px;
+    color: #4a4a4a;
+}
+
+.archive-stats strong {
+    color: var(--primary);
+}
+
+/* ============================================
+   WORDPRESS SPECIFIC
+   ============================================ */
+
+.alignleft {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.alignright {
+    float: right;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wp-caption {
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.wp-caption-text {
+    font-size: 14px;
+    color: #666;
+    margin-top: 8px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.gallery-item {
+    margin: 0;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 40px 0;
+}
+
+.pagination a,
+.pagination span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    height: 44px;
+    padding: 0 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.pagination a:hover {
+    background: #f0f0f0;
+    border-color: #999;
+}
+
+.pagination .current {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+/* Focus styles */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+    .header,
+    .footer,
+    .filters,
+    .actions,
+    .notice {
+        display: none;
+    }
+
+    body {
+        font-size: 12pt;
+        background: white;
+        color: black;
+    }
+
+    .panel,
+    .card {
+        border: 1px solid #ccc;
+        box-shadow: none;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+
+    a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 10pt;
+    }
+}

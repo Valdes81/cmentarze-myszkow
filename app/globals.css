@@ -1,0 +1,948 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "../vendor/shadcn-tailwind-4.13.0.css";
+:root{--background:#f8f9f7;--foreground:#243c35;--card:#fff;--card-foreground:#243c35;--popover:#fff;--popover-foreground:#243c35;--primary:#214f41;--primary-foreground:#fff;--secondary:#edf1ed;--secondary-foreground:#243c35;--muted:#edf1ed;--muted-foreground:#596760;--accent:#e5ede5;--accent-foreground:#214f41;--border:#dce3dc;--input:#dce3dc;--ring:#46735f;--radius:.7rem}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px}body{margin:0;background:var(--background);color:var(--foreground);font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.6}a{color:inherit;text-decoration:none}button,input{font:inherit}button,a,input,summary{ -webkit-tap-highlight-color:transparent}button,a{touch-action:manipulation}button{cursor:pointer}a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #9aaf51;outline-offset:4px}svg{flex-shrink:0}.wrap{width:min(1180px,calc(100% - 64px));margin:auto}.header{background:#fff;border-bottom:1px solid var(--border)}.header-row{min-height:92px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;gap:12px;align-items:center;line-height:1.2}.brand-icon{background:#214f41;color:white;border-radius:50%;width:43px;height:43px;display:grid;place-items:center}.brand strong{display:block;font-family:Georgia,serif;font-size:24px;font-weight:500}.brand small{display:block;letter-spacing:2.2px;font-size:10px;margin-top:6px;color:#65716b}.nav{display:flex;align-items:center;gap:30px;font-size:15px}.nav a:hover{color:#47775d}.nav .active{color:#214f41;border-bottom:2px solid #214f41;padding:32px 0}.outline,.btn{border:1px solid #cdd8ce;border-radius:7px;padding:11px 19px;display:inline-flex;align-items:center;justify-content:center;gap:10px;background:white;font-weight:600}.btn{background:#214f41;color:#fff;border-color:#214f41}.btn:hover{background:#163d30}.eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:700;color:#51705b;display:flex;align-items:center;gap:10px}.hero{padding:54px 0 35px;background:#eef2ed;border-bottom:1px solid #dce3d9}.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:58px;align-items:center}.hero h1{font-family:Georgia,serif;font-weight:400;font-size:clamp(34px,4vw,52px);line-height:1.13;letter-spacing:-1.5px;margin:17px 0 20px}.hero h1 em{font-style:normal;color:#54745b}.hero p{color:#5c6962;max-width:590px;font-size:17px;line-height:1.75}.hero-picture{height:265px;position:relative;border-radius:100px 12px 12px 12px;overflow:hidden;background:#dbe3d8}.hero-picture img{width:100%;height:100%;object-fit:cover}.picture-label{position:absolute;bottom:14px;left:16px;background:#fffffff0;padding:7px 13px;border-radius:5px;font-size:13px;display:flex;gap:8px;align-items:center}.search{display:flex;padding:8px;background:#fff;border:1px solid #d3ded1;box-shadow:0 6px 20px #203e3010;border-radius:10px;gap:8px;margin-top:30px;align-items:center}.search>svg{margin-left:12px;color:#587160}.search input{min-width:0;flex:1;border:0;outline:none!important;padding:12px;background:transparent;color:#243c35}.quick{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px;font-size:13px;color:#68756b}.quick button{border:0;background:transparent;color:#345d45;text-decoration:underline;text-underline-offset:4px;padding:2px 6px}.trust{display:flex;gap:28px;margin-top:25px;font-size:13px;color:#5d6a60}.trust span{display:flex;align-items:center;gap:8px}.section{padding:48px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:24px}h2{font-family:Georgia,serif;font-weight:400;font-size:30px;line-height:1.25;margin:0 0 8px}h3{font-size:19px;line-height:1.35;margin:12px 0}.section-head p,.muted{color:#69746d;margin:0}.text-link{display:inline-flex;gap:10px;align-items:center;font-size:14px;font-weight:600;color:#315e46}.filters{display:flex;gap:9px;margin-bottom:24px;flex-wrap:wrap}.filter{border:1px solid #dbe1d8;background:#fff;border-radius:30px;padding:8px 20px;color:#57665c;font-size:14px}.filter.selected{background:#234e3e;color:white;border-color:#234e3e}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card{background:white;border:1px solid #dce3d9;border-radius:11px;overflow:hidden;transition:transform .2s,box-shadow .2s}.card:hover{transform:translateY(-3px);box-shadow:0 8px 30px #233c3410}.card-image{height:185px;background:#e9eee7;position:relative;overflow:hidden}.card-image img{height:100%;width:100%;object-fit:cover}.tag{font-size:12px;background:#fffef5;padding:4px 11px;border-radius:4px;color:#375540;display:inline-flex;align-items:center;gap:6px}.card-image .tag{position:absolute;left:16px;top:15px}.card-body{padding:19px 22px}.card-body h3{font-family:Georgia,serif;font-size:23px;font-weight:400;margin:0 0 11px}.location{display:flex;gap:7px;align-items:center;color:#6b756c;font-size:14px}.card-bottom{border-top:1px solid #e9ece6;padding-top:14px;margin-top:18px;display:flex;justify-content:space-between;align-items:center;font-size:14px;color:#315940}.city-list{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.city{border:1px solid #dde4da;border-radius:8px;background:white;padding:19px;display:flex;align-items:center;justify-content:space-between;gap:10px}.city:hover{border-color:#5a7b58}.city small{display:block;font-size:12px;color:#788074}.map-grid{display:grid;grid-template-columns:320px 1fr;border:1px solid #dbe1d7;border-radius:12px;overflow:hidden;background:#fff;min-height:360px}.map-side{padding:30px}.map-side h2{font-size:29px}.map-side p{color:#667262;font-size:15px}.map-entry{border-top:1px solid #e2e7de;margin-top:25px;padding-top:20px}.map-entry strong{display:block;font-size:16px}.map-entry .text-link{margin-top:15px}.map-frame{width:100%;height:100%;min-height:360px;border:0}.notice{background:#edf2e9;border-radius:9px;display:flex;align-items:center;gap:22px;padding:24px 28px;margin-top:34px}.notice p{margin:2px 0;color:#65715f;font-size:14px}.notice .text-link{margin-left:auto;white-space:nowrap}.footer{padding:34px 0;border-top:1px solid #dce2d8;background:#f0f3ed}.footer-row{display:flex;justify-content:space-between;gap:32px}.footer p{font-size:13px;color:#687561;max-width:520px}.footer a{text-decoration:underline;text-underline-offset:3px}.crumb{font-size:13px;color:#6b796e;padding:24px 0}.detail-title{padding-bottom:30px}.detail-title h1{font-family:Georgia,serif;font-weight:400;font-size:44px;line-height:1.15;margin:16px 0}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.detail-grid{display:grid;grid-template-columns:1fr 320px;gap:30px;align-items:start}.panel{background:white;border:1px solid #dce3da;border-radius:10px;padding:29px;margin-bottom:23px;scroll-margin-top:24px}.panel h2{font-size:27px;margin-bottom:20px}.detail-photo{width:100%;height:290px;object-fit:cover;border-radius:10px;margin-bottom:24px}.info{display:grid;grid-template-columns:1fr 1fr;gap:20px}.info dt{font-size:13px;color:#6e796d;margin-bottom:3px}.info dd{margin:0;font-size:16px}.source{font-size:12px;color:#70806c;border-top:1px solid #e4e8df;margin-top:20px;padding-top:13px}.source a{text-decoration:underline}.aside .panel{padding:24px}.aside a{overflow-wrap:anywhere}.aside h3{margin-top:0}.aside .btn{width:100%;margin-top:14px}.empty{padding:36px;border:1px dashed #b6c6b5;border-radius:10px;background:white}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:13px 10px;border-bottom:1px solid #e5e8e1}th{font-size:14px;color:#64705f}td:last-child{color:#718069;font-size:14px}details{border-bottom:1px solid #e1e6dc;padding:15px 0}summary{cursor:pointer;font-weight:600}details p{color:#63715f}.small{font-size:14px}.skip{position:absolute;left:10px;top:-60px;background:white;padding:10px;z-index:10}.skip:focus{top:10px}.menu-button{display:none}.mobile-links{display:none}.leaf-placeholder{display:grid;place-items:center;height:100%;color:#768b6e;background:linear-gradient(135deg,#e4ecdf,#d0ddc8)}.photo-credit{font-size:12px;color:#6e786b;margin-top:7px}
+@media(max-width:950px){.nav{gap:17px;font-size:14px}.nav .outline{display:none}.hero-grid{gap:25px;grid-template-columns:1.3fr .7fr}.hero-picture{height:250px}.cards{gap:14px}.card-body{padding:18px}.city-list{grid-template-columns:repeat(3,1fr)}.detail-grid{grid-template-columns:1fr 280px}.wrap{width:calc(100% - 40px)}}
+@media(max-width:680px){.wrap{width:calc(100% - 32px)}.header-row{min-height:77px}.brand strong{font-size:21px}.brand small{font-size:9px}.nav{display:none}.menu-button{display:flex}.mobile-links{display:flex;padding-bottom:18px;gap:18px;flex-wrap:wrap;font-size:15px}.hero{padding-top:30px}.hero-grid{display:block}.hero h1{font-size:38px}.hero-picture{display:none}.hero p{font-size:16px}.search{margin-top:22px}.search input{padding:10px 2px;font-size:14px}.search .btn{padding:12px}.search .btn span{display:none}.trust{gap:15px;font-size:12px;flex-wrap:wrap}.section{padding:32px 0}.section-head{align-items:start}.section-head h2{font-size:26px}.section-head .text-link{font-size:12px;max-width:110px}.section-head p{font-size:14px}.cards{grid-template-columns:1fr}.card{display:grid;grid-template-columns:115px 1fr}.card-image{height:100%;min-height:190px}.card-image .tag{left:8px;top:9px;font-size:10px;padding:3px 5px}.card-body h3{font-size:21px}.city-list{grid-template-columns:1fr 1fr}.city{padding:14px}.map-grid{grid-template-columns:1fr}.map-side{padding:23px}.map-entry{margin-top:15px;padding-top:15px}.map-frame{min-height:290px}.notice{padding:20px;gap:14px;flex-wrap:wrap}.notice .text-link{margin-left:0}.footer-row{display:block}.detail-title h1{font-size:34px}.detail-grid{display:flex;flex-direction:column}.detail-main,.aside{width:100%}.panel{padding:22px}.info{grid-template-columns:1fr}.detail-photo{height:220px}.actions{gap:8px}.actions a{padding:10px 13px;font-size:14px}}
+.card-parish{font-size:14px;color:#657362;line-height:1.5;margin:0 0 14px;min-height:42px}.card-body{display:flex;flex-direction:column}.card-bottom{margin-top:auto}.card-body .location{margin-bottom:18px}.card-image .leaf-placeholder{min-height:185px}.info dd{overflow-wrap:anywhere}.detail-main{min-width:0}
+.county-section{scroll-margin-top:100px}.county-heading{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-bottom:24px}.county-heading h2{margin:12px 0}.county-heading p{color:#67716b;font-size:14px}.county-total{font-size:12px;white-space:nowrap;color:#68776e}.county-total strong{font:42px Georgia;color:#245340;display:block;text-align:right}.county-filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}.county-filters button{display:flex;align-items:center;gap:9px;padding:11px 15px;border:1px solid #d8e1da;border-radius:30px;background:#fff;font-size:13px;cursor:pointer}.county-filters button.chosen{background:#234c3e;color:white;border-color:#234c3e}.county-filters i,.county-scroll i{width:8px;height:8px;border-radius:50%;display:block;flex-shrink:0}.county-filters button span{opacity:.65;font-size:11px}.county-layout{display:grid;grid-template-columns:285px 1fr;border:1px solid #dbe2dc;border-radius:16px;overflow:hidden;background:white}.county-map{height:550px;z-index:0;background:#e8ede5}.county-list{min-width:0}.county-list-title{padding:23px;border-bottom:1px solid #e5e9e5;display:grid;gap:6px}.county-list-title small{font-size:12px;color:#738076}.county-scroll{height:466px;overflow:auto}.county-scroll button{width:100%;text-align:left;display:flex;align-items:center;gap:11px;padding:18px 20px;border:0;border-bottom:1px solid #eef0ec;background:white;cursor:pointer}.county-scroll button:hover,.county-scroll button:focus-visible{background:#f0f5ef}.county-scroll strong{font-size:13px;line-height:1.45;display:block}.county-scroll small{display:block;font-size:11px;color:#778279;margin-top:5px}.county-scroll b{margin-left:auto;color:#607267}.county-note{display:flex;justify-content:space-between;gap:16px;font-size:11px;color:#65746b;margin-top:15px;line-height:1.8}.county-note a{text-decoration:underline}.map-disclaimer{font-size:11px;color:#7b847c;line-height:1.6;margin-top:6px}.cemetery-pin span{display:flex;align-items:center;justify-content:center;width:22px;height:22px;border:3px solid white;border-radius:50%;margin:2px;box-shadow:0 2px 8px rgba(0,0,0,0.3);font-size:11px;color:white;text-shadow:0 1px 2px rgba(0,0,0,0.5)}.cemetery-pin:hover span{transform:scale(1.25)}.leaflet-popup-content-wrapper{border-radius:12px!important}.place-popup{font-family:Arial;padding:6px}.place-popup small{font-size:9px;letter-spacing:1px;color:#597261}.place-popup h3{font:22px/1.2 Georgia;margin:10px 0}.place-popup p{font-size:12px;color:#67766c;margin:8px 0 14px}.place-popup a{display:block;color:#265941!important;margin-top:10px;font-size:13px}.place-popup a.source-link{font-size:10px;color:#718077!important}.map-loading{padding:40px;color:#566a59}.hero-picture img{object-fit:cover}.hero-picture .picture-label{font-size:11px}.regional-links{display:flex;gap:22px;align-items:center;flex-wrap:wrap;font-size:12px;margin-top:22px;padding-top:20px;border-top:1px solid #dbe2da}.regional-links a{color:#305e49}.regional-links span{color:#778276}@media(max-width:760px){.county-heading{display:block}.county-total{display:none}.county-layout{grid-template-columns:1fr}.county-map{height:430px;grid-row:1}.county-scroll{height:230px}.county-note{display:block}.county-note span{display:block}.county-filters{gap:6px}.county-filters button{font-size:12px;padding:9px 12px}}
+
+/* Lilia: Marcellus, charcoal and silver - shared across the portal. */
+@font-face{font-family:Marcellus;src:url('/fonts/Marcellus-Regular.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+:root{--background:#242424;--foreground:#ededed;--card:#303030;--card-foreground:#ededed;--popover:#242424;--popover-foreground:#f5f5f5;--primary:#dedede;--primary-foreground:#111;--secondary:#262626;--secondary-foreground:#ededed;--muted:#252525;--muted-foreground:#b8b8b8;--accent:#333;--accent-foreground:#fff;--border:#3b3b3b;--input:#444;--ring:#bcbcbc;--radius:.25rem;--silver:linear-gradient(95deg,#b0b0b0 10%,#fafafa 52%,#c3c3c3)}
+body{background:var(--background);color:var(--foreground)}
+h1,h2,.brand strong,.card-body h3,.detail-title h1,.hero h1,.county-total strong,.place-popup h3{font-family:Marcellus,Georgia,serif;font-weight:400}
+h2{font-size:32px}.header{background:#151515;border-color:#353535}.header-row{min-height:104px}.brand-icon{background:transparent;border:1px solid #858585;border-radius:0;color:#ddd}.brand strong{letter-spacing:.1px}.brand small{color:#aaa;letter-spacing:1.7px}.nav{color:#c7c7c7}.nav a:hover{color:#fff}.nav .active{color:#fff;border-color:#c7c7c7}.outline,.btn{border-radius:3px;letter-spacing:.2px}.outline{background:transparent;color:#ddd;border-color:#696969}.outline:hover{background:#303030;border-color:#ccc}.btn{background:var(--silver);border-color:#bbb;color:#111}.btn:hover{background:#f5f5f5;color:#000}.eyebrow{color:#bcbcbc;font-size:12px;letter-spacing:2.5px}.hero{background:linear-gradient(115deg,#292929,#363636);border-color:#3b3b3b;padding:60px 0 35px}.hero h1{font-size:clamp(38px,4.2vw,56px);letter-spacing:-.7px;line-height:1.16}.hero h1 em{color:#d4d4d4}.hero p{color:#c0c0c0}.hero-picture{border-radius:3px;border:1px solid #555;background:#222;height:285px}.hero-picture img{filter:none}.hero-picture:hover img{filter:none}.picture-label{background:#101010ed;border:1px solid #666;color:#ddd;border-radius:0}.search{background:#f2f2f2;border-color:#d0d0d0;border-radius:3px;box-shadow:0 10px 30px #0004;padding:8px}.search>svg{color:#666}.search input{color:#242424}.search input::placeholder{color:#666}.quick,.trust{color:#aaa}.quick button,.text-link{color:#ddd}.text-link:hover,.quick button:hover{color:#fff;text-decoration:underline;text-underline-offset:4px}.section-head p,.muted{color:#b5b5b5}.filters{gap:10px}.filter{border-radius:3px;background:#292929;border-color:#4a4a4a;color:#c5c5c5}.filter.selected{background:#dadada;border-color:#dadada;color:#111}.filter:hover{border-color:#aaa}.card{background:#303030;border-color:#3a3a3a;border-radius:3px}.card:hover{border-color:#858585;box-shadow:0 12px 28px #0005}.card-image{background:#242424}.card-image img{filter:none}.leaf-placeholder{background:linear-gradient(140deg,#404040,#303030);color:#b0b0b0}.card-body h3{color:#eee}.tag{background:#dfdfdf;color:#242424;border-radius:2px}.card-parish,.location{color:#b8b8b8}.card-bottom{border-color:#3a3a3a;color:#ccc}.city{background:#303030;border-color:#414141;border-radius:3px}.city:hover{border-color:#b4b4b4;background:#242424}.city small{color:#aaa}.map-grid,.panel{background:#303030;border-color:#414141;border-radius:3px}.map-side p,.source,.info dt,.crumb{color:#aaa}.map-entry,.source{border-color:#414141}.notice{background:#242424;border:1px solid #4c4c4c;border-radius:3px}.notice p{color:#bbb}.footer{background:#292929;border-color:#444;padding:40px 0}.footer p{color:#aaa}.footer .brand-icon{display:none}.footer .brand{flex-wrap:wrap;max-width:390px}.lilia-signature{display:block;width:135px;height:71px;object-fit:contain;margin-right:8px}.detail-title .tag{background:#303030;color:#ddd;border:1px solid #555}.detail-photo{border-radius:3px;filter:none}.info dd{color:#e1e1e1}.source a{color:#d7d7d7}.empty{background:#303030;border-color:#666}.photo-credit{color:#999}th,td,details{border-color:#414141}th,td:last-child,details p{color:#bbb}.skip{background:#fff;color:#111}.county-heading p,.county-total{color:#bbb}.county-total strong{color:#e5e5e5}.county-filters button{background:#303030;color:#ddd;border-color:#555;border-radius:3px;font-size:14px}.county-filters button.chosen{background:#dedede;color:#111;border-color:#dedede}.county-filters button span{font-size:12px}.county-layout{background:#303030;border-color:#555;border-radius:3px}.county-list-title{border-color:#444}.county-list-title small{color:#aaa}.county-scroll button{background:#303030;color:#eee;border-color:#383838}.county-scroll button:hover,.county-scroll button:focus-visible{background:#323232}.county-scroll strong{font-size:14px;font-weight:500}.county-scroll small{color:#b6b6b6;font-size:12px}.county-scroll b{color:#bbb}.county-note,.map-disclaimer{font-size:12px;color:#aaa}.county-note a{color:#ddd}.regional-links{border-color:#444;font-size:14px}.regional-links span{color:#aaa}.regional-links a{color:#ddd}.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#181818!important;color:#eee!important}.leaflet-popup-content-wrapper{border:1px solid #777;border-radius:3px!important}.place-popup small{font-size:11px;color:#bbb}.place-popup h3{color:#eee}.place-popup p{font-size:13px;color:#bbb}.place-popup a{color:#e8e8e8!important;font-size:14px}.place-popup a.source-link{color:#aaa!important;font-size:12px}.leaflet-container a.leaflet-popup-close-button{color:#ddd}.leaflet-control-attribution{color:#333}.leaflet-control-attribution a{color:#333}.map-loading{color:#333}.map-frame{background:#ececec}a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline-color:#ddd}.mobile-links{color:#ddd}
+@media(max-width:680px){.header-row{min-height:84px}.brand strong{font-size:20px}.brand small{font-size:9px}.hero{padding-top:32px}.hero h1{font-size:39px}.hero p{font-size:16px}.hero-picture{display:none}.card-body h3{font-size:22px}.footer .brand{margin-bottom:24px}.lilia-signature{width:110px;height:58px}.county-filters button{font-size:13px}.section-head h2{font-size:27px}}
+.map-side [data-slot="select-trigger"],[data-slot="select-content"]{background:#242424!important;color:#eee!important;border-color:#666}
+
+/* Illustrated silver symbols, generated for this portal in Higgsfield. */
+.premium-icon{display:block;flex:none;width:72px;height:72px;background-image:url('/images/premium-icons.webp');background-size:300% 200%;background-repeat:no-repeat;border-radius:12px}
+.brand-icon{width:52px;height:52px;border:0;border-radius:50%;overflow:hidden;background:#303030}.brand-icon .premium-icon{width:62px;height:62px;border-radius:50%}
+.header{background:#202020}.header-row{min-height:96px}.hero{background:linear-gradient(110deg,#303030,#3a3a3a);padding-top:48px}.hero-picture{border-radius:16px 3px 16px 3px;border-color:#777;box-shadow:0 16px 40px #0003}.hero h1 em{color:#f0ede7}.hero p{color:#d0d0d0}.eyebrow{color:#d2d2d2;font-size:14px;letter-spacing:1.8px}.search{border-radius:8px}.trust{gap:30px;margin-top:24px;color:#d0d0d0;font-size:14px}.trust>span{gap:10px}.trust .premium-icon{width:46px;height:46px;border-radius:50%}
+.cards{gap:24px}.card{border-radius:12px;border:1px solid #505050;background:linear-gradient(145deg,#383838,#303030);box-shadow:0 4px 14px #0001}.card-image{height:160px;background:#303030;border-bottom:1px solid #484848}.symbol-panel{height:100%;display:flex;align-items:center;justify-content:center;position:relative;background:#303030}.symbol-panel .premium-icon{width:148px;height:148px}.symbol-caption{position:absolute;right:16px;bottom:12px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#bcbcbc}.card-image .tag{left:14px;top:14px;background:#eeeae2;color:#292929;border-radius:4px;font-size:12px;border:1px solid #ffffff70}.card-body{padding:24px}.card-body h3{font-size:24px;line-height:1.3}.card-parish{color:#c7c7c7;line-height:1.65}.card-bottom{padding-top:18px;border-color:#535353}.card-bottom .text-link{justify-content:space-between;width:100%;font-size:14px}.card:hover{border-color:#aaa;box-shadow:0 12px 30px #0003}.filter{border-radius:6px;padding:10px 20px}.filter.selected{background:#e8e5de;border-color:#e8e5de}.section-head{margin-bottom:28px}.city{border-radius:8px;padding:22px;border-color:#555;background:linear-gradient(140deg,#3a3a3a,#303030)}.city small{font-size:14px;margin-top:6px}.county-layout{border-radius:12px;box-shadow:0 8px 28px #0002}.county-scroll button{border-bottom-color:#484848}.county-scroll button:hover{background:#424242}.county-filters button{border-radius:6px}.notice{border-radius:10px;background:#303030}.panel{border-radius:10px}.section-head p{line-height:1.65}.photo-credit{line-height:1.7}.footer{background:#262626}
+@media(max-width:680px){.header-row{min-height:84px}.brand-icon{width:43px;height:43px}.brand-icon .premium-icon{width:53px;height:53px}.hero{padding-top:30px}.trust{gap:12px;display:grid;grid-template-columns:1fr;font-size:14px}.trust .premium-icon{width:36px;height:36px}.card{grid-template-columns:110px 1fr}.card-image{height:100%;min-height:200px;border-bottom:0;border-right:1px solid #484848}.symbol-panel .premium-icon{width:108px;height:108px}.symbol-caption{display:none}.card-image .tag{left:6px;top:10px;font-size:11px;padding:3px 5px;max-width:96px;white-space:normal}.card-body{padding:18px}.card-body h3{font-size:21px}.cards{gap:16px}.city{padding:16px}.city small{font-size:13px}.eyebrow{font-size:12px}.brand small{letter-spacing:1px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card{transition:none}.card:hover{transform:none}}
+
+/* Colour is visible in the default state, including touch screens. */
+:root{--background:#242c34;--foreground:#f4f5f6;--card:#333e47;--card-foreground:#f4f5f6;--primary:#29786e;--primary-foreground:#fff;--accent:#385365;--accent-foreground:#fff;--border:#52616c;--ring:#79c5b7}
+body{background:#242c34}.header{background:#1c2d3a;border-color:#476070}.hero{background:linear-gradient(115deg,#293f50 0%,#365357 100%);border-color:#597276}.hero h1 em{color:#b8e3d5}.hero p{color:#e0e9ec}.eyebrow{color:#c0dcd8}.brand small{color:#c0d2dc}.nav{color:#e4ecef}.nav .active{border-color:#8bd0bd}.btn{background:#267467;color:#fff;border-color:#78b6a7}.btn:hover{background:#2e8576;color:#fff}.outline{border-color:#859aa7;color:#eef4f6}.outline:hover{background:#3b5361}.text-link,.quick button{color:#b5e2d5}.quick,.trust{color:#deeaed}.trust .premium-icon{box-shadow:0 0 0 1px #7f9b9c}.hero-picture{border-color:#a0b7af}.section-head p,.muted{color:#c2cdd4}.card{background:linear-gradient(145deg,#384650,#303b44);border-color:#596b78;border-top:3px solid var(--gmina,#75bdaa)}.card-parish,.location{color:#cbd5dc}.card-bottom{border-color:#566772}.card-image .tag{background:var(--gmina-soft,#d9eae2);color:#1c3031;border-color:transparent}.symbol-caption{color:var(--gmina-soft,#d9eae2)}
+[data-gmina="Myszków"]{--gmina:#69b39a;--gmina-soft:#c0ead8;--gmina-dark:#2b5b50}[data-gmina="Żarki"]{--gmina:#d6a56c;--gmina-soft:#f2dcc0;--gmina-dark:#66513b}[data-gmina="Niegowa"]{--gmina:#adc572;--gmina-soft:#e0ecc4;--gmina-dark:#4b5d38}[data-gmina="Poraj"]{--gmina:#80b9df;--gmina-soft:#d1e9f9;--gmina-dark:#365b75}[data-gmina="Koziegłowy"]{--gmina:#b7a0da;--gmina-soft:#e7dcf5;--gmina-dark:#5a4875}
+.filter[data-gmina]{background:var(--gmina-dark,#344c5b);color:var(--gmina-soft,#e1ebef);border-color:var(--gmina,#779aa6)}.filter.selected{background:var(--gmina-soft,#d8e9e5);color:#1d3034;border-color:var(--gmina-soft,#d8e9e5);box-shadow:0 0 0 2px #ffffff24}.city{background:linear-gradient(130deg,var(--gmina-dark),#303e48);border-color:var(--gmina);color:#fff;border-left:4px solid var(--gmina)}.city:hover{background:var(--gmina-dark);border-color:var(--gmina-soft)}.city small{color:var(--gmina-soft)}.city>svg{color:var(--gmina-soft)}.county-layout,.panel,.map-grid{background:#333e47;border-color:#617583}.county-list-title{background:#314b5b;border-color:#637984}.county-scroll button{background:#333e47;border-color:#50616d}.county-scroll button:hover{background:#405665}.county-filters button{background:#324653;color:#ecf3f7;border-color:#708b9c}.county-filters button.chosen{background:#d2e9e1;color:#203f38;border-color:#8ab6a7}.county-total strong{color:#b5e2d5}.notice{background:#304d51;border-color:#658b8c}.notice>svg{color:#a9decf}.notice p{color:#d1e3e3}.footer{background:#1d2f3d;border-color:#516774}.footer p{color:#c3d0d7}.source,.info dt,.crumb,.photo-credit{color:#becbd3}.regional-links a{color:#bee3e7}.regional-links{border-color:#536b79}.map-entry,.source{border-color:#627480}.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#253d4a!important}.place-popup h3{color:#fff}.place-popup a{color:#bdebdc!important}a:focus-visible,button:focus-visible,input:focus-visible{outline-color:#9de1d0}
+
+/* Supplied portal identity, displayed in its original colours. */
+.portal-logo{display:block;width:220px;height:auto;object-fit:contain;background:#fff;border-radius:4px;flex:none}.header{background:#fff;border-bottom:1px solid #c5b18d}.header-row{min-height:177px;padding-top:6px;padding-bottom:6px}.header .nav{color:#294451}.header .nav .active{color:#244c45;border-color:#a88b5a}.header .nav a:hover{color:#26675c}.header .outline{color:#294451;border-color:#a1afb5}.header .outline:hover{background:#edf3f3}.header .mobile-links{color:#294451}.footer .portal-logo{width:200px}.footer .brand{max-width:410px;gap:22px}.header .brand{line-height:1}
+@media(max-width:680px){.portal-logo{width:164px}.header-row{min-height:129px;padding-top:3px;padding-bottom:3px}.footer .portal-logo{width:180px}.footer .brand{gap:18px}.header .mobile-links{padding-bottom:18px}}
+
+.regulations-list{list-style:decimal;padding-left:1.6rem;margin-top:1.25rem;line-height:1.8}.regulations-list>li{padding-left:.3rem;margin-bottom:1rem}.regulations-list ul{list-style:disc;padding-left:1.4rem;margin-top:.5rem}.regulations-list ul li{margin-bottom:.35rem}
+
+.card-links{margin-top:auto}.card-links .card-bottom{margin-top:0}.grave-search-badge{display:flex;align-items:center;gap:10px;padding:11px 12px;margin:0 0 16px;background:#244f49;border:1px solid #6cae9e;border-radius:7px;color:#e2f7ef;min-height:60px}.grave-search-badge>span{flex:1;min-width:0}.grave-search-label{display:block;font-size:14px;line-height:1.35;color:#d6ece6}.grave-search-badge strong{display:block;font-size:15px;line-height:1.5;color:#fff}.grave-search-badge:hover{background:#30675d;border-color:#a4dbc8}.grave-search-badge>svg:last-child{margin-left:auto}@media(max-width:680px){.grave-search-badge{padding:10px 9px;gap:7px}.grave-search-label{font-size:14px}}
+
+/* Higgsfield Jura film across the full introduction, with a calm static image in the card. */
+.hero{position:relative;isolation:isolate;overflow:hidden;background:#293f50}.hero-content{position:relative;z-index:2}.hero-backdrop{--hero-shift:0px;position:absolute;z-index:-2;inset:0;overflow:hidden;pointer-events:none}.hero-backdrop video,.hero-backdrop>img{position:absolute;inset:-60px 0 auto;width:100%;height:calc(100% + 120px);object-fit:cover;object-position:center 54%;transform:translate3d(0,var(--hero-shift),0) scale(1.055);will-change:transform}.hero-backdrop-shade{position:absolute;inset:0;background:linear-gradient(90deg,#172c38f2 0%,#1b3441de 43%,#213c46b8 69%,#223c47c9 100%);box-shadow:inset 0 -70px 90px #10232d73}.hero .hero-picture{background:#223844;border-color:#9bafa9;box-shadow:0 16px 45px #08192366}.hero .hero-picture img{filter:saturate(.88) contrast(1.04)}.hero .picture-label{background:#132a34e8;border-color:#9eb6b180;color:#eef7f5;backdrop-filter:blur(8px)}
+@media(max-width:680px){.hero-backdrop-shade{background:linear-gradient(90deg,#172c38f2,#1b3441dc)}.hero-backdrop video,.hero-backdrop>img{object-position:62% center}}
+@media(prefers-reduced-motion:reduce){.hero-backdrop video,.hero-backdrop>img{transform:scale(1.04)}}
+
+/* Family resemblance to liliamyszkow.com: charcoal, ivory and silver, while municipality colours remain functional. */
+:root{--background:#25292c;--foreground:#f3f2ef;--card:#303539;--card-foreground:#f3f2ef;--popover:#25292c;--popover-foreground:#fff;--primary:#e4e1db;--primary-foreground:#17191a;--secondary:#2d3235;--secondary-foreground:#f1f1ef;--muted:#2d3235;--muted-foreground:#c5c6c4;--accent:#3a4043;--accent-foreground:#fff;--border:#555b5e;--input:#666b6d;--ring:#d7d2c9}
+body{background:#25292c}.header{background:#fff;border-bottom:1px solid #b9aa8d;box-shadow:0 5px 24px #0000001a}.header .nav{color:#31383b}.header .nav .active{color:#171b1d;border-color:#a28c65}.header .nav a:hover{color:#806b49}.header .outline{color:#252b2e;border-color:#9ca2a5}.header .outline:hover{background:#f0efec;border-color:#777}
+.hero-backdrop-shade{background:linear-gradient(90deg,#15181be8 0%,#202426dc 43%,#293033b8 70%,#202628c9 100%)}.hero h1 em{color:#e8e3da}.hero p,.quick,.trust{color:#e0e0dc}.eyebrow{color:#dad6cf}.btn{background:var(--silver);border-color:#d4d0c8;color:#17191a}.btn:hover{background:#fff;color:#111}.text-link,.quick button{color:#eee9df}.text-link:hover,.quick button:hover{color:#fff}.hero .hero-picture{border-color:#a9a59d;box-shadow:0 18px 50px #0008}.hero .picture-label{background:#171a1ce8;border-color:#aaa59b;color:#f3f0e9}
+.section-head p,.muted,.card-parish,.location{color:#c8cac8}.card{background:linear-gradient(145deg,#353a3d,#2d3235);border-color:#555b5e;border-top-color:var(--gmina,#aaa)}.card:hover{border-color:#85898a;box-shadow:0 14px 34px #0005}.card-image{background:#292d30;border-color:#505558}.symbol-panel{background:radial-gradient(circle at 50% 40%,#3b4043,#292d30 72%)}.card-bottom{border-color:#505659}.grave-search-badge{background:#303b3a;border-color:#718c84;color:#edf4f1}.grave-search-badge:hover{background:#3a4a47;border-color:#a8bdb6}
+.county-layout,.panel,.map-grid{background:#303539;border-color:#5a6063}.county-list-title{background:#292e31;border-color:#565c5f}.county-scroll button{background:#303539;border-color:#484e51}.county-scroll button:hover{background:#3a4043}.county-filters button{background:#303539;color:#f0efec;border-color:#666b6d}.county-filters button.chosen{background:#e7e3dc;color:#1d2021;border-color:#e7e3dc}.county-total strong{color:#ece8e0}.city{background:linear-gradient(135deg,var(--gmina-dark),#303437);box-shadow:inset 0 0 0 1px #ffffff0a}.notice{background:#303539;border-color:#63696b}.notice p{color:#cecfcf}.regional-links{border-color:#555b5e}.regional-links a{color:#eee9df}.source,.info dt,.crumb,.photo-credit{color:#bfc2c2}.footer{background:#191c1e;border-color:#4c5153}.footer p{color:#bfc1c1}
+.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#24282a!important}.place-popup a{color:#eee9df!important}.map-side [data-slot="select-trigger"],[data-slot="select-content"]{background:#262a2d!important;border-color:#666!important}
+@media(max-width:680px){.hero-backdrop-shade{background:linear-gradient(90deg,#15181bef,#24292cdd)}}
+
+/* Readability profile for an older audience: larger type, generous leading and easy touch targets. */
+body{font-size:18px;line-height:1.72}.nav{font-size:17px}.nav a{min-height:48px;display:inline-flex;align-items:center}.hero p{font-size:19px;line-height:1.72;max-width:650px}.eyebrow{font-size:15px}.search input{font-size:17px;line-height:1.5;min-height:48px}.search .btn,.btn,.outline{font-size:16px;min-height:48px;padding:12px 20px}.quick,.trust{font-size:16px;line-height:1.6}.quick button{font-size:16px;min-height:44px}.section-head p{font-size:17px;line-height:1.7}h2,.section-head h2{font-size:36px;line-height:1.25}h3{font-size:22px}.card-body h3{font-size:26px;line-height:1.32}.card-parish{font-size:17px;line-height:1.68;min-height:0}.location{font-size:16px;line-height:1.55;align-items:flex-start}.tag,.card-image .tag{font-size:14px;line-height:1.35;padding:6px 10px}.filter{font-size:16px;min-height:46px;padding:10px 19px}.text-link{font-size:16px;line-height:1.45;min-height:44px}.grave-search-badge{min-height:66px;padding:13px 14px}.grave-search-label{font-size:15px}.grave-search-badge strong{font-size:17px}.city{font-size:18px;min-height:78px}.city small{font-size:15px;line-height:1.5}.county-heading p{font-size:16px}.county-total{font-size:14px}.county-filters button{font-size:16px;min-height:46px}.county-filters button span{font-size:14px}.county-list-title small{font-size:14px}.county-scroll button{min-height:74px;padding:18px 20px}.county-scroll strong{font-size:16px;line-height:1.5}.county-scroll small{font-size:14px;line-height:1.5}.county-note,.map-disclaimer{font-size:14px;line-height:1.7}.map-side p,.small{font-size:16px;line-height:1.7}.notice p{font-size:16px;line-height:1.6}.notice strong{font-size:18px}.regional-links{font-size:15px}.footer p{font-size:15px;line-height:1.7}.photo-credit,.source{font-size:14px;line-height:1.75}.detail-title h1{font-size:48px}.panel p,.panel li,.info dd,details p{font-size:17px;line-height:1.75}.info dt{font-size:15px}.panel h2{font-size:31px}.regulations-list{font-size:17px;line-height:1.85}summary{font-size:17px;min-height:48px;display:flex;align-items:center}th,td{font-size:16px;line-height:1.55;padding:15px 12px}.place-popup p{font-size:15px}.place-popup a{font-size:15px!important}
+@media(max-width:680px){body{font-size:17px}.hero h1{font-size:41px;line-height:1.18}.hero p{font-size:18px}.search .btn span{display:inline}.search .btn{padding:12px 15px}.trust{font-size:16px}.section-head{display:block}.section-head h2{font-size:31px}.section-head .text-link{font-size:16px;max-width:none;margin-top:10px}.cards{grid-template-columns:1fr}.card{display:block}.card-image{height:180px;min-height:180px;border-right:0;border-bottom:1px solid #505558}.card-image .tag{left:12px;top:12px;font-size:14px;padding:5px 9px;max-width:calc(100% - 24px)}.card-body{padding:21px}.card-body h3{font-size:25px}.card-parish{font-size:17px}.location{font-size:16px}.grave-search-label{font-size:15px}.city-list{grid-template-columns:1fr}.city{font-size:18px;min-height:72px}.county-filters button{font-size:16px;padding:10px 14px}.county-scroll{height:270px}.county-scroll button{min-height:78px}.county-scroll strong{font-size:16px}.county-scroll small{font-size:14px}.notice{font-size:17px}.footer p{font-size:15px}.detail-title h1{font-size:38px}.panel{padding:23px}.panel p,.panel li,.info dd{font-size:17px}.mobile-links{font-size:17px;line-height:1.6}.mobile-links a{min-height:44px;display:inline-flex;align-items:center}.menu-button{min-width:48px;min-height:48px}}
+@media(max-width:420px){.search{display:grid;grid-template-columns:auto 1fr}.search>svg{margin-left:8px}.search .btn{grid-column:1/-1;width:100%}.hero h1{font-size:37px}.wrap{width:calc(100% - 28px)}}
+
+/* Privacy-first external maps. */
+.map-consent{min-height:360px;width:100%;display:flex;align-items:center;justify-content:center;gap:24px;padding:34px;background:linear-gradient(145deg,#343b3f,#272d30);border:1px solid #5c6468;color:#f2f1ed}.map-grid>.map-consent{border:0;border-left:1px solid #5c6468}.map-consent-icon{width:72px;height:72px;border-radius:50%;display:grid;place-items:center;flex:0 0 auto;background:#e6e2da;color:#242729}.map-consent-copy{max-width:560px}.map-consent h3{font-family:Marcellus,Georgia,serif;font-size:29px;font-weight:400;margin:10px 0}.map-consent p{font-size:17px;line-height:1.72;color:#d0d1cf;margin:0}.map-consent-actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:22px}.map-privacy-link{display:inline-block;margin-top:17px;font-size:15px;text-decoration:underline;text-underline-offset:4px;color:#d7d4cd}.map-consent-loaded{display:block;padding:0}.map-consent-loaded .map-frame{display:block;min-height:360px}.panel .map-consent{margin-top:18px;border-radius:8px}.contact-source strong{color:#e8e5de}
+
+/* Clear, large legal pages for the portal's older audience. */
+.legal-page{padding-bottom:70px}.legal-hero{max-width:900px;padding:28px 0 45px}.legal-hero h1{font-family:Marcellus,Georgia,serif;font-size:clamp(42px,5vw,62px);font-weight:400;line-height:1.15;margin:16px 0}.legal-hero p{font-size:21px;line-height:1.7;color:#d2d3d1;max-width:820px}.legal-hero>span{display:inline-block;margin-top:12px;font-size:16px;color:#b9bcba}.legal-layout{display:grid;grid-template-columns:280px minmax(0,1fr);gap:38px;align-items:start}.legal-nav{position:sticky;top:24px;display:grid;gap:5px;padding:24px;border:1px solid #5b6164;border-radius:10px;background:#2d3235}.legal-nav strong{font-size:18px;margin-bottom:8px}.legal-nav a{font-size:16px;line-height:1.45;padding:10px 8px;border-bottom:1px solid #454b4e;color:#e0ddd6}.legal-nav a:hover{text-decoration:underline;text-underline-offset:4px}.legal-content{min-width:0}.legal-content section{scroll-margin-top:28px;background:#303539;border:1px solid #5a6063;border-radius:10px;padding:34px;margin-bottom:24px}.legal-content h2{font-size:34px;margin-bottom:20px}.legal-content h3{font-family:Marcellus,Georgia,serif;font-size:25px;font-weight:400;margin-top:28px}.legal-content p,.legal-content li{font-size:19px;line-height:1.8;color:#e1e2df}.legal-content li{margin-bottom:10px}.legal-content a{text-decoration:underline;text-underline-offset:4px;color:#f1eee7}.legal-address{font-style:normal;font-size:19px;line-height:1.75;padding:22px 24px;margin:20px 0;border-left:4px solid #c3b18e;background:#252a2d}.legal-table-wrap{overflow-x:auto}.legal-table th{color:#e8e5dd}.legal-table td{vertical-align:top;color:#e0e1de}.legal-table th:first-child,.legal-table td:first-child{width:42%}.legal-basis{border-top:1px solid #555b5e;margin-top:26px;padding-top:20px;color:#c4c6c3!important}.footer-copy{max-width:560px}.footer-copy strong{color:#e7e4dd}.footer-legal{display:flex;gap:24px;flex-wrap:wrap;margin-top:19px}.footer-legal a{font-size:17px;color:#f0ede6;font-weight:600}
+@media(max-width:850px){.legal-layout{grid-template-columns:1fr}.legal-nav{position:static;grid-template-columns:1fr 1fr}.legal-nav strong{grid-column:1/-1}.map-grid>.map-consent{border-left:0;border-top:1px solid #5c6468}}
+@media(max-width:680px){.map-consent{min-height:330px;display:block;padding:26px}.map-consent-icon{width:58px;height:58px}.map-consent h3{font-size:26px}.map-consent p{font-size:17px}.map-consent-actions{display:grid;gap:10px}.map-consent-actions .btn,.map-consent-actions .text-link{width:100%}.legal-page{padding-bottom:45px}.legal-hero{padding:22px 0 32px}.legal-hero h1{font-size:39px}.legal-hero p{font-size:19px}.legal-nav{grid-template-columns:1fr;padding:19px}.legal-nav strong{grid-column:auto}.legal-content section{padding:24px}.legal-content h2{font-size:30px}.legal-content h3{font-size:23px}.legal-content p,.legal-content li,.legal-address{font-size:18px}.legal-table{min-width:650px}.footer-legal{display:grid;gap:10px}}
+
+/* Clearly enlarged edition - the size change should be immediately noticeable. */
+body{font-size:20px;line-height:1.78}.nav{font-size:18px}.hero p{font-size:21px;line-height:1.75}.eyebrow{font-size:16px}.search input{font-size:19px}.search .btn,.btn,.outline{font-size:18px;min-height:52px}.quick,.trust,.quick button{font-size:17px}.section{padding-top:56px;padding-bottom:56px}.section-head p{font-size:19px;max-width:760px}h2,.section-head h2{font-size:40px}.card-body{padding:27px}.card-body h3{font-size:28px}.card-parish{font-size:19px;color:#e0e1df}.location{font-size:18px;color:#d8dad8}.tag,.card-image .tag{font-size:15px}.filter,.county-filters button{font-size:18px;min-height:50px}.text-link{font-size:18px}.grave-search-label{font-size:17px}.grave-search-badge strong{font-size:19px}.city{font-size:20px;min-height:84px}.city small{font-size:17px}.county-heading p{font-size:18px}.county-list-title small{font-size:16px}.county-scroll button{min-height:84px}.county-scroll strong{font-size:18px}.county-scroll small{font-size:16px}.county-note,.map-disclaimer{font-size:16px}.map-side p,.small{font-size:18px}.notice p{font-size:18px}.notice strong{font-size:20px}.regional-links{font-size:17px}.footer p{font-size:17px}.photo-credit,.source{font-size:16px}.panel p,.panel li,.info dd,details p,.regulations-list{font-size:19px}.info dt{font-size:17px}.panel h2{font-size:35px}summary{font-size:19px}th,td{font-size:18px}
+@media(max-width:680px){body{font-size:19px}.hero p{font-size:20px}.search input{font-size:18px}.section{padding-top:40px;padding-bottom:40px}.section-head h2{font-size:34px}.section-head p{font-size:18px}.card-body h3{font-size:27px}.card-parish{font-size:18px}.location{font-size:17px}.filter,.county-filters button{font-size:17px}.text-link{font-size:17px}.city{font-size:19px}.city small{font-size:16px}.panel p,.panel li,.info dd,.regulations-list{font-size:18px}.footer p{font-size:16px}}
+
+/* ============================================
+   JASNY MOTYW - dla starszych użytkowników
+   Wysoki kontrast, kremowe tło, ciemny tekst
+   ============================================ */
+:root{--background:#faf9f6;--foreground:#1a1a1a;--card:#ffffff;--card-foreground:#1a1a1a;--muted-foreground:#4a4a4a;--border:#d0cec8;--accent:#f0eeea}
+body{background:#faf9f6;color:#1a1a1a}
+
+/* Header - jasny z ciemnym tekstem */
+.header{background:#fff;border-bottom:2px solid #c9b896;box-shadow:0 2px 12px #0001}
+.header .nav{color:#2a2a2a}.header .nav a:hover{color:#1a5a4a}.header .nav .active{color:#1a5a4a;border-color:#2a7a5a}
+.header .outline{color:#2a2a2a;border-color:#888;background:#fff}.header .outline:hover{background:#f0f0f0}
+.header .mobile-links{color:#2a2a2a;background:#fff}
+
+/* Przyciski outline w jasnym motywie - wyraźny tekst */
+.outline{color:#2a2a2a;border:2px solid #999;background:#fff}
+.outline:hover{background:#f0f0f0;border-color:#666}
+.menu-button{background:#fff;border-color:#999}
+
+/* Hero - stonowany gradient */
+.hero{background:linear-gradient(115deg,#e8f0ed 0%,#d8e8e0 100%);border-color:#c0d0c8}
+.hero-backdrop-shade{background:linear-gradient(90deg,#e0ebe6f0 0%,#d5e5dde0 50%,#cde0d8d0 100%)}
+.hero h1{color:#1a2a24}.hero h1 em{color:#2a5a4a}
+.hero p{color:#3a3a3a}
+.eyebrow{color:#4a6a5a}
+.quick,.trust{color:#3a3a3a}
+.text-link,.quick button{color:#1a5a4a}
+.text-link:hover,.quick button:hover{color:#0a4a3a}
+
+/* Wyszukiwarka */
+.search{background:#fff;border:2px solid #bbb;box-shadow:0 4px 16px #0001}
+.search input{color:#1a1a1a}.search input::placeholder{color:#666}
+.search>svg{color:#555}
+.btn{background:#2a6a5a;color:#fff;border-color:#2a6a5a}.btn:hover{background:#1a5a4a}
+
+/* Sekcje */
+.section-head p,.muted{color:#4a4a4a}
+h2{color:#1a2a24}
+
+/* Filtry */
+.filter{background:#fff;border:2px solid #bbb;color:#2a2a2a}
+.filter:hover{border-color:#888}
+.filter.selected{background:#2a6a5a;color:#fff;border-color:#2a6a5a}
+
+/* Karty cmentarzy - białe z wyraźnym tekstem i cieniami */
+.card{background:#fff;border:1px solid #ccc;border-top:4px solid var(--gmina,#5a9a7a);box-shadow:0 4px 16px rgba(0,0,0,0.08),0 2px 6px rgba(0,0,0,0.04);transition:box-shadow 0.2s ease,transform 0.2s ease,border-color 0.2s ease}
+.card:hover{border-color:#999;box-shadow:0 8px 28px rgba(0,0,0,0.12),0 4px 12px rgba(0,0,0,0.06);transform:translateY(-3px)}
+.card-image{background:#f5f5f0;border-bottom:1px solid #ddd}
+.symbol-panel{background:#f0f0ea}
+.symbol-caption{color:#5a5a5a}
+.card-body h3{color:#1a2a24}
+.card-parish{color:#3a3a3a}
+.location{color:#4a4a4a}
+.card-bottom{border-color:#ddd;color:#2a2a2a}
+.tag,.card-image .tag{background:#e8f4e8;color:#1a4a3a;border:1px solid #aad0b8}
+
+/* Badge wyszukiwarki grobów */
+.grave-search-badge{background:#e8f4f0;border:2px solid #7ab8a0;color:#1a3a30}
+.grave-search-badge:hover{background:#d8ece4;border-color:#5aa888}
+.grave-search-label{color:#3a5a4a}
+.grave-search-badge strong{color:#1a3a30}
+
+/* Lista gmin */
+.city{background:#fff;border:2px solid var(--gmina,#7a9);border-left:5px solid var(--gmina);color:#1a1a1a;box-shadow:0 2px 8px rgba(0,0,0,0.05);transition:box-shadow 0.2s ease,transform 0.2s ease}
+.city:hover{background:#f8f8f5;border-color:var(--gmina-dark);box-shadow:0 4px 14px rgba(0,0,0,0.1);transform:translateY(-2px)}
+.city small{color:#4a4a4a}
+
+/* Kolory gmin - ciemniejsze dla lepszego kontrastu */
+[data-gmina="Myszków"]{--gmina:#3a8a6a;--gmina-soft:#d0f0e0;--gmina-dark:#1a5a4a}
+[data-gmina="Żarki"]{--gmina:#a07030;--gmina-soft:#f0dcc0;--gmina-dark:#6a4a20}
+[data-gmina="Niegowa"]{--gmina:#6a8a30;--gmina-soft:#e0f0c0;--gmina-dark:#4a6a20}
+[data-gmina="Poraj"]{--gmina:#4080b0;--gmina-soft:#d0e8f8;--gmina-dark:#2a5a80}
+[data-gmina="Koziegłowy"]{--gmina:#7a60a0;--gmina-soft:#e8dcf8;--gmina-dark:#5a4080}
+
+/* Mapa powiatowa */
+.county-layout,.panel,.map-grid{background:#fff;border:1px solid #ccc;box-shadow:0 3px 12px rgba(0,0,0,0.06),0 1px 4px rgba(0,0,0,0.03)}
+.county-list-title{background:#f8f8f5;border-color:#ddd;color:#1a1a1a}
+.county-list-title small{color:#4a4a4a}
+.county-scroll button{background:#fff;border-color:#eee;color:#1a1a1a}
+.county-scroll button:hover{background:#f5f5f0}
+.county-scroll strong{color:#1a2a24}
+.county-scroll small{color:#4a4a4a}
+.county-filters button{background:#fff;color:#2a2a2a;border:2px solid #bbb}
+.county-filters button.chosen{background:#2a6a5a;color:#fff;border-color:#2a6a5a}
+.county-total strong{color:#1a4a3a}
+.county-note,.map-disclaimer{color:#5a5a5a}
+
+/* Notice */
+.notice{background:#f0f8f4;border:2px solid #a0c8b8;color:#1a1a1a;box-shadow:0 2px 10px rgba(0,0,0,0.04)}
+.notice p{color:#3a3a3a}
+.notice>svg{color:#3a7a5a}
+
+/* Footer */
+.footer{background:#f5f4f0;border-color:#d0cec0}
+.footer p{color:#3a3a3a}
+.footer a{color:#1a5a4a}
+.footer-legal a{color:#1a3a2a}
+
+/* Logo Lilia - ciemne tło dla widoczności na jasnym motywie */
+.lilia-signature{background:#2a2a2a;border-radius:8px;padding:12px 16px}
+
+/* Detale */
+.source,.info dt,.crumb,.photo-credit{color:#5a5a5a}
+.source a{color:#1a5a4a;text-decoration:underline}
+.source a:hover{color:#0a4a3a}
+.info dd{color:#1a1a1a}
+.regional-links{border-color:#d0cec8}
+.regional-links a{color:#1a5a4a}
+.regional-links span{color:#4a4a4a}
+
+/* Popup mapy - zaokrąglone i eleganckie */
+.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#fff!important;color:#1a1a1a!important}
+.leaflet-popup-content-wrapper{border:none!important;border-radius:16px!important;box-shadow:0 8px 32px rgba(0,0,0,0.18),0 2px 8px rgba(0,0,0,0.1)!important;padding:0!important}
+.leaflet-popup-content{margin:0!important;padding:20px 22px!important}
+.leaflet-popup-tip{box-shadow:0 4px 12px rgba(0,0,0,0.1)!important}
+.leaflet-container a.leaflet-popup-close-button{top:12px!important;right:12px!important;color:#666!important;font-size:22px!important;width:28px!important;height:28px!important}
+.leaflet-container a.leaflet-popup-close-button:hover{color:#1a1a1a!important}
+.place-popup{min-width:220px}
+.place-popup small{display:block;font-size:12px!important;letter-spacing:1.5px;text-transform:uppercase;color:#2a6a5a!important;font-weight:600;margin-bottom:6px}
+.place-popup h3{color:#1a2a24;font-size:22px!important;line-height:1.3;margin:0 0 10px!important}
+.place-popup p{color:#4a4a4a;font-size:15px!important;line-height:1.55;margin:0 0 16px!important}
+.place-popup a{display:block;color:#1a5a4a!important;font-size:15px!important;font-weight:600;padding:6px 0;border-top:1px solid #eee}
+.place-popup a:first-of-type{border-top:none;padding-top:0}
+.place-popup a:hover{color:#0a4a3a!important}
+.place-popup a.source-link{font-size:12px!important;color:#888!important;font-weight:400}
+
+/* Select */
+.map-side [data-slot="select-trigger"],[data-slot="select-content"]{background:#fff!important;color:#1a1a1a!important;border-color:#aaa!important}
+
+/* Consent mapy */
+.map-consent{background:#f5f5f0;border-color:#ccc;color:#1a1a1a}
+.map-consent p{color:#3a3a3a}
+.map-consent-icon{background:#2a6a5a;color:#fff}
+
+/* Legal */
+.legal-content section{background:#fff;border-color:#ccc}
+.legal-content p,.legal-content li{color:#2a2a2a}
+.legal-nav{background:#fff;border-color:#ccc}
+.legal-nav a{color:#1a1a1a;border-color:#eee}
+.legal-address{background:#f8f8f5;border-color:#a08a5a}
+
+/* Empty state */
+.empty{background:#fff;border-color:#aaa}
+
+/* Focus */
+a:focus-visible,button:focus-visible,input:focus-visible{outline-color:#2a6a5a}
+
+/* Równe wysokości elementów na kartach */
+.card-body h3{min-height:68px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-parish{min-height:85px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card-body .location{min-height:52px}
+.card-links{min-height:130px}
+@media(max-width:680px){.card-body h3{min-height:auto;-webkit-line-clamp:3}.card-parish{min-height:auto}.card-body .location{min-height:auto}.card-links{min-height:auto}}
+
+/* Premium przyciski gmin */
+.county-filters{gap:12px;margin-bottom:28px}
+.county-filters button{
+  background:#fff;
+  border:2px solid #ccc;
+  border-radius:8px;
+  padding:14px 24px;
+  font-size:18px;
+  font-weight:600;
+  color:#2a2a2a;
+  box-shadow:0 2px 8px rgba(0,0,0,0.06);
+  transition:all 0.2s ease;
+}
+.county-filters button i{display:none}
+.county-filters button span{opacity:1;font-size:14px;font-weight:400;color:#666;margin-left:6px}
+.county-filters button:hover{
+  border-color:#2a6a5a;
+  background:#f8faf9;
+  transform:translateY(-2px);
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+.county-filters button.chosen{
+  background:#2a6a5a;
+  color:#fff;
+  border-color:#2a6a5a;
+  box-shadow:0 4px 16px rgba(42,106,90,0.3);
+}
+.county-filters button.chosen span{color:rgba(255,255,255,0.8)}
+@media(max-width:680px){
+  .county-filters button{padding:12px 18px;font-size:17px}
+  .county-filters button span{font-size:13px}
+}
+
+/* Premium nagłówek mapy */
+.county-heading{
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:12px;
+  padding:28px 32px;
+  margin-bottom:28px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.04);
+}
+.county-heading .eyebrow{
+  color:#2a6a5a;
+  font-size:13px;
+  letter-spacing:3px;
+  margin-bottom:8px;
+}
+.county-heading h2{
+  color:#1a2a24;
+  font-size:38px;
+  margin:0 0 12px;
+}
+.county-heading p{
+  color:#4a4a4a;
+  font-size:18px;
+  line-height:1.6;
+  margin:0;
+}
+.county-total{
+  background:#f5f5f0;
+  border-radius:8px;
+  padding:16px 20px;
+  text-align:center;
+}
+.county-total strong{
+  font-size:48px;
+  color:#2a6a5a;
+  line-height:1;
+}
+
+/* Premium disclaimer */
+.county-note{
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:8px;
+  padding:16px 20px;
+  margin-top:20px;
+  font-size:14px;
+  color:#555;
+}
+.county-note a{color:#2a6a5a}
+.map-disclaimer{
+  background:#f8f8f5;
+  border-radius:8px;
+  padding:14px 18px;
+  margin-top:12px;
+  font-size:14px;
+  color:#666;
+  line-height:1.7;
+}
+
+@media(max-width:680px){
+  .county-heading{padding:20px 22px}
+  .county-heading h2{font-size:30px}
+  .county-heading p{font-size:16px}
+  .county-total strong{font-size:36px}
+}
+
+/* ============================================
+   KOLORY RODZAJÓW CMENTARZY
+   ============================================ */
+[data-rodzaj="parafialny"]{--rodzaj-color:#2a6a5a;--rodzaj-bg:#e8f4f0;--rodzaj-icon:"⛪"}
+[data-rodzaj="komunalny"]{--rodzaj-color:#3a6a8a;--rodzaj-bg:#e0f0f8;--rodzaj-icon:"🏛️"}
+[data-rodzaj="wojenny"]{--rodzaj-color:#8a3a3a;--rodzaj-bg:#f8e8e8;--rodzaj-icon:"⚔️"}
+[data-rodzaj="żydowski"]{--rodzaj-color:#8a7030;--rodzaj-bg:#f8f0d8;--rodzaj-icon:"✡️"}
+[data-rodzaj="mariawicki"]{--rodzaj-color:#6a4a8a;--rodzaj-bg:#f0e8f8;--rodzaj-icon:"☦️"}
+
+/* Karta cmentarza - border-top według rodzaju */
+.card[data-rodzaj]{
+  border-top-color:var(--rodzaj-color,#2a6a5a);
+  border-top-width:4px;
+}
+
+/* Tag na obrazku karty - kolor według rodzaju */
+.card[data-rodzaj] .tag{
+  background:var(--rodzaj-bg,#e8f4f0);
+  color:var(--rodzaj-color,#2a6a5a);
+  border:1px solid var(--rodzaj-color,#2a6a5a);
+  font-weight:600;
+}
+
+/* Ikona rodzaju przed tagiem */
+.card[data-rodzaj] .tag::before{
+  content:var(--rodzaj-icon,"⛪");
+  margin-right:6px;
+  font-size:12px;
+}
+
+/* Przyciski filtra rodzaju - kolory */
+.filter-small[data-rodzaj="parafialny"]{--btn-color:#2a6a5a}
+.filter-small[data-rodzaj="komunalny"]{--btn-color:#3a6a8a}
+.filter-small[data-rodzaj="wojenny"]{--btn-color:#8a3a3a}
+.filter-small[data-rodzaj="żydowski"]{--btn-color:#8a7030}
+.filter-small[data-rodzaj="mariawicki"]{--btn-color:#6a4a8a}
+
+.filter-small[data-rodzaj]:not(.selected){
+  border-color:var(--btn-color,#ccc);
+  color:var(--btn-color,#3a3a3a);
+}
+.filter-small[data-rodzaj]:not(.selected):hover{
+  background:color-mix(in srgb, var(--btn-color) 10%, white);
+}
+.filter-small[data-rodzaj].selected{
+  background:var(--btn-color,#2a6a5a);
+  border-color:var(--btn-color,#2a6a5a);
+}
+
+/* ============================================
+   FILTR RODZAJU CMENTARZA
+   ============================================ */
+.filters-secondary{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:24px;
+  padding-top:8px;
+  border-top:1px solid #e0e0dc;
+}
+.filter-label{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:14px;
+  color:#5a5a5a;
+  padding:8px 0;
+  margin-right:8px;
+}
+.filter-small{
+  background:#fff;
+  border:1px solid #ccc;
+  border-radius:6px;
+  padding:8px 14px;
+  font-size:14px;
+  color:#3a3a3a;
+  cursor:pointer;
+  transition:all 0.15s ease;
+}
+.filter-small:hover{
+  border-color:#2a6a5a;
+  background:#f8faf9;
+}
+.filter-small.selected{
+  background:#2a6a5a;
+  color:#fff;
+  border-color:#2a6a5a;
+}
+@media(max-width:680px){
+  .filters-secondary{gap:8px}
+  .filter-label{font-size:13px;margin-right:4px}
+  .filter-small{padding:7px 12px;font-size:13px}
+}
+
+/* ============================================
+   GRUPOWANE POPUPY CMENTARZY (Kotowice itp.)
+   ============================================ */
+.place-popup-group{
+  min-width:260px;
+  max-width:320px;
+}
+.place-popup-group small{
+  display:block;
+  font-size:11px!important;
+  letter-spacing:1.2px;
+  text-transform:uppercase;
+  color:#2a6a5a!important;
+  font-weight:600;
+  margin-bottom:12px;
+  padding-bottom:8px;
+  border-bottom:1px solid #eee;
+}
+.popup-item{
+  padding:12px 0;
+}
+.popup-item h3{
+  font-size:18px!important;
+  line-height:1.3;
+  margin:0 0 6px!important;
+  color:#1a2a24;
+}
+.popup-item p{
+  font-size:13px!important;
+  color:#5a5a5a;
+  margin:0 0 8px!important;
+}
+.popup-links{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+.popup-links a{
+  font-size:13px!important;
+  padding:4px 0!important;
+  border-top:none!important;
+}
+.place-popup-group hr{
+  border:none;
+  border-top:1px solid #e8e8e8;
+  margin:0;
+}
+.popup-route{
+  display:block;
+  margin-top:14px;
+  padding-top:12px!important;
+  border-top:1px solid #ddd!important;
+  font-weight:600;
+  color:#1a5a4a!important;
+}
+
+/* ============================================
+   MARKER GRUPOWY (z licznikiem)
+   ============================================ */
+.cemetery-pin-group span{
+  position:relative;
+  display:flex!important;
+  align-items:center;
+  justify-content:center;
+  width:24px!important;
+  height:24px!important;
+  border:3px solid white;
+  border-radius:50%;
+  box-shadow:0 2px 8px rgba(0,0,0,0.3);
+}
+.cemetery-pin-group span b{
+  font-size:11px;
+  font-weight:700;
+  color:#fff;
+  text-shadow:0 1px 2px rgba(0,0,0,0.3);
+}
+.cemetery-pin-group:hover span{
+  transform:scale(1.25);
+}
+
+/* ============================================
+   FAKTY Z OZNACZENIEM PEWNOŚCI
+   ============================================ */
+.sourced-fact{
+  margin-bottom:14px;
+}
+.sourced-fact p{
+  margin:0 0 4px;
+}
+.certainty-note{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-size:13px;
+  color:#6a7a6a;
+  font-style:italic;
+}
+.certainty-note a{
+  color:#2a6a5a;
+  text-decoration:underline;
+  text-underline-offset:2px;
+}
+.certainty-note a:hover{
+  color:#1a5a4a;
+}
+
+/* ============================================
+   STRONA SZCZEGÓŁOWA CMENTARZA - NOWE SEKCJE
+   ============================================ */
+.cemetery-description{
+  font-size:19px;
+  line-height:1.78;
+  color:#2a2a2a;
+}
+.cemetery-description p{
+  margin:0 0 16px;
+}
+.cemetery-ciekawostki{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+.cemetery-ciekawostki li{
+  position:relative;
+  padding-left:28px;
+  margin-bottom:14px;
+  font-size:17px;
+  line-height:1.7;
+  color:#2a2a2a;
+}
+.cemetery-ciekawostki li::before{
+  content:"✦";
+  position:absolute;
+  left:0;
+  top:0;
+  color:#2a6a5a;
+  font-size:14px;
+}
+.cemetery-sources{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+.cemetery-sources li{
+  padding:12px 0;
+  border-bottom:1px solid #eee;
+  font-size:15px;
+  line-height:1.6;
+}
+.cemetery-sources li:last-child{
+  border-bottom:none;
+}
+.cemetery-sources a{
+  color:#2a6a5a;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+.cemetery-sources a:hover{
+  color:#1a5a4a;
+}
+.cemetery-sources small{
+  display:block;
+  font-size:13px;
+  color:#777;
+  margin-top:4px;
+}
+
+/* Brakujące dane - info panel */
+.missing-data-note{
+  background:#f8f5e8;
+  border:1px solid #e8dcc0;
+  border-left:4px solid #c9a050;
+  border-radius:6px;
+  padding:16px 18px;
+  margin-top:20px;
+  font-size:15px;
+  color:#6a5a30;
+  line-height:1.65;
+}
+
+/* ============================================
+   LEGENDA MAPY - RODZAJE CMENTARZY
+   ============================================ */
+/* ============================================
+   GALERIA CMENTARZA
+   ============================================ */
+.gallery-panel{
+  padding:0;
+  overflow:hidden;
+}
+.gallery-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:24px 28px 16px;
+  border-bottom:1px solid #eee;
+}
+.gallery-header h2{
+  margin:0;
+}
+.gallery-count{
+  font-size:14px;
+  color:#666;
+  background:#f5f5f0;
+  padding:6px 12px;
+  border-radius:20px;
+}
+
+/* Placeholder gdy brak zdjęć */
+.gallery-empty{
+  padding:0;
+}
+.gallery-placeholder{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:60px 30px;
+  text-align:center;
+  color:#888;
+  background:linear-gradient(135deg,#f8f8f5,#f0f0ea);
+}
+.gallery-placeholder h3{
+  margin:16px 0 8px;
+  color:#555;
+}
+.gallery-placeholder p{
+  margin:0;
+  font-size:15px;
+}
+
+/* Główne zdjęcie */
+.gallery-main{
+  padding:20px 28px;
+}
+.gallery-main-btn{
+  position:relative;
+  display:block;
+  width:100%;
+  border:none;
+  padding:0;
+  cursor:pointer;
+  border-radius:12px;
+  overflow:hidden;
+  background:#f0f0ea;
+}
+.gallery-main-btn img{
+  display:block;
+  width:100%;
+  height:400px;
+  object-fit:cover;
+  transition:transform 0.3s ease;
+}
+.gallery-main-btn:hover img{
+  transform:scale(1.02);
+}
+.gallery-main-overlay{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  padding:20px;
+  background:linear-gradient(transparent,rgba(0,0,0,0.7));
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:12px;
+}
+.gallery-main-title{
+  color:white;
+  font-size:18px;
+  font-weight:500;
+}
+
+/* Badge typu zdjęcia */
+.gallery-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 12px;
+  background:rgba(255,255,255,0.95);
+  border-radius:20px;
+  font-size:12px;
+  font-weight:600;
+  color:#333;
+}
+.gallery-badge[data-type="drone"]{
+  background:#e8f4ff;
+  color:#2a5a8a;
+}
+.gallery-badge[data-type="video"]{
+  background:#f8e8e8;
+  color:#8a3a3a;
+}
+
+/* Sekcje galerii */
+.gallery-section{
+  padding:20px 28px;
+  border-top:1px solid #eee;
+}
+.gallery-section-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:16px;
+  font-weight:600;
+  margin:0 0 16px;
+  color:#333;
+}
+
+/* Siatka miniatur */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+.gallery-grid-videos{
+  grid-template-columns:repeat(2,1fr);
+}
+
+.gallery-thumb{
+  position:relative;
+  aspect-ratio:4/3;
+  border:none;
+  padding:0;
+  cursor:pointer;
+  border-radius:8px;
+  overflow:hidden;
+  background:#f0f0ea;
+}
+.gallery-thumb img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform 0.3s ease;
+}
+.gallery-thumb:hover img{
+  transform:scale(1.05);
+}
+.gallery-thumb .gallery-badge{
+  position:absolute;
+  top:8px;
+  left:8px;
+  font-size:10px;
+  padding:4px 8px;
+}
+
+/* Miniatura filmu */
+.gallery-video-thumb{
+  position:relative;
+  aspect-ratio:16/9;
+  border-radius:8px;
+  overflow:hidden;
+  background:#222;
+  display:block;
+}
+.gallery-video-thumb img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.gallery-video-placeholder{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100%;
+  color:#888;
+  background:linear-gradient(135deg,#333,#222);
+}
+.gallery-video-overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background:rgba(0,0,0,0.5);
+  color:white;
+  opacity:0;
+  transition:opacity 0.2s ease;
+}
+.gallery-video-thumb:hover .gallery-video-overlay{
+  opacity:1;
+}
+.gallery-video-overlay span{
+  font-size:14px;
+  font-weight:500;
+}
+
+/* Lightbox */
+.lightbox{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  background:rgba(0,0,0,0.95);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:60px 80px;
+}
+.lightbox-close{
+  position:absolute;
+  top:20px;
+  right:20px;
+  background:transparent;
+  border:none;
+  color:white;
+  cursor:pointer;
+  padding:10px;
+  border-radius:50%;
+  transition:background 0.2s;
+}
+.lightbox-close:hover{
+  background:rgba(255,255,255,0.1);
+}
+.lightbox-nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(255,255,255,0.1);
+  border:none;
+  color:white;
+  cursor:pointer;
+  padding:16px;
+  border-radius:50%;
+  transition:background 0.2s;
+}
+.lightbox-nav:hover{
+  background:rgba(255,255,255,0.2);
+}
+.lightbox-prev{left:20px}
+.lightbox-next{right:20px}
+
+.lightbox-content{
+  max-width:90vw;
+  max-height:80vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.lightbox-content img{
+  max-width:100%;
+  max-height:70vh;
+  object-fit:contain;
+  border-radius:4px;
+}
+.lightbox-video{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:200px;
+}
+.lightbox-caption{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-top:16px;
+  color:#ccc;
+  font-size:14px;
+}
+.lightbox-counter{
+  background:rgba(255,255,255,0.1);
+  padding:6px 12px;
+  border-radius:20px;
+}
+.lightbox-author{
+  font-style:italic;
+  color:#999;
+}
+
+@media(max-width:680px){
+  .gallery-header{padding:18px 20px 12px}
+  .gallery-main{padding:16px 20px}
+  .gallery-main-btn img{height:260px}
+  .gallery-section{padding:16px 20px}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+  .gallery-grid-videos{grid-template-columns:1fr}
+  .lightbox{padding:20px}
+  .lightbox-nav{padding:12px}
+  .lightbox-prev{left:10px}
+  .lightbox-next{right:10px}
+  .lightbox-caption{flex-wrap:wrap;justify-content:center;text-align:center}
+}
+
+.map-legend{
+  display:flex;
+  flex-wrap:wrap;
+  gap:16px;
+  align-items:center;
+  padding:14px 18px;
+  margin-top:16px;
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:8px;
+  font-size:14px;
+}
+.map-legend-title{
+  font-weight:600;
+  color:#3a3a3a;
+  margin-right:8px;
+}
+.map-legend-item{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  color:#4a4a4a;
+}
+.map-legend-item::before{
+  content:'';
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:var(--dot-color,#2a6a5a);
+  border:2px solid white;
+  box-shadow:0 1px 3px rgba(0,0,0,0.2);
+}
+@media(max-width:680px){
+  .map-legend{
+    gap:10px;
+    padding:12px 14px;
+    font-size:13px;
+  }
+  .map-legend-title{
+    width:100%;
+    margin-bottom:4px;
+  }
+}
